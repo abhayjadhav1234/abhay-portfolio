@@ -28,64 +28,10 @@ a {
 
 a:hover { color: #0ea5e9; }
 
-/* ✅ NAVBAR */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(2,6,23,0.9);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #1f2933;
-  z-index: 1000;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 10%;
-}
-
-.nav-logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #38bdf8;
-}
-
-.nav-links a {
-  margin-left: 22px;
-  font-size: 15px;
-  color: #d1d5db;
-  position: relative;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: #38bdf8;
-  transition: 0.3s;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 22px;
-  cursor: pointer;
-  color: #38bdf8;
-}
-
-/* ✅ HEADER */
 header {
   background: linear-gradient(135deg, #0a2540, #111827);
   text-align: center;
-  padding: 160px 20px 80px; /* increased due to navbar */
+  padding: 120px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,7 +178,7 @@ footer {
   transform: translateY(-4px);
 }
 
-/* Visitor Counter */
+/* ✅ Stylish Visitor Counter */
 #visitor-box {
   margin-top: 15px;
   font-size: 15px;
@@ -252,56 +198,15 @@ footer {
   letter-spacing: 1px;
 }
 
-/* ✅ Responsive Navbar */
 @media (max-width: 768px) {
   section { padding: 50px 7%; }
   header h1 { font-size: 38px; }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 55px;
-    right: 0;
-    background: #020617;
-    width: 220px;
-    display: none;
-    flex-direction: column;
-    padding: 15px;
-    border-left: 1px solid #1f2933;
-    border-bottom: 1px solid #1f2933;
-  }
-
-  .nav-links a {
-    margin: 12px 0;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 </head>
 <body>
-
-<!-- ✅ NAVBAR -->
-<nav>
-  <div class="nav-container">
-    <div class="nav-logo">Abhay.dev</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#docs">Documents</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
 
 <header>
   <img src="profile.jpg" alt="Abhay Jadhav Profile Picture">
@@ -324,7 +229,7 @@ footer {
 </section>
 
 <section id="skills">
-  <h2>Skills</h2>
+  <h2 data-en="Skills" data-de="Fähigkeiten">Skills</h2>
   <div class="skills">
     <span>C++</span>
     <span>Python</span>
@@ -343,20 +248,31 @@ footer {
 
 <section id="experience">
   <h2>Experience</h2>
+
   <div class="card">CARIAD SE (Volkswagen Group) – Master’s Thesis & Internship: Radar-based vehicle localisation and SLAM under degraded GNSS conditions.</div>
   <div class="card">SICK AG – Robotics Internship: Development of localisation software using C++ and ROS2.</div>
   <div class="card">Bosch Chassis Systems India – Graduate Apprentice: Brake system design and automation tools.</div>
+
 </section>
 
 <section id="docs">
   <h2>Documents & Employment References</h2>
+
   <a class="doc-btn" href="https://drive.google.com/file/d/1H3qs15LcOnExYhRQBm_yeZXoltDdvcKI/view?usp=drivesdk" target="_blank">🏢 CV</a>
   <a class="doc-btn" href="https://drive.google.com/file/d/1gM33zuszWJHtlXDhFQVmNM_5Ufko5Ys2/view?usp=drivesdk" target="_blank">🎓 Master’s Transcript</a>
   <a class="doc-btn" href="https://drive.google.com/file/d/1-FpLX9457taQ63g-Wf1lIUUwtGAb471N/view?usp=drivesdk" target="_blank">📄 Bachelor’s Transcript</a>
   <a class="doc-btn" href="https://drive.google.com/file/d/1CkyjdwLysbhrBgIPrNs23szEwdCayssB/view?usp=drivesdk" target="_blank">🎓 Bachelor’s Degree</a>
   <a class="doc-btn" href="https://drive.google.com/file/d/1XCLIQLBlnM8FzwH9EIlS1a1nPLWfNXTt/view?usp=drivesdk" target="_blank">✉️ Recommendation Letter</a>
   <a class="doc-btn" href="https://drive.google.com/file/d/14bmo8HbqxNC22Y7tHkD6ZiC0Qo0cpE1g/view?usp=drivesdk" target="_blank">📜 Seminar Certificate</a>
+
+  <!-- ✅ Master Thesis -->
   <a class="doc-btn" href="https://drive.google.com/file/d/1PTz_r60ebH4lhTkB_Ujtq2S0rnLaITXi/view?usp=drivesdk" target="_blank">📘 Master’s Thesis</a>
+
+  <h3 style="margin-top: 25px; color:#38bdf8;">Employment References</h3>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1w-AFurYIn-h00TM6fzIYe3cOgJFBduVb/view" target="_blank">🏢 Employment Reference 1</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1IGKlR3h-FCsLRfGxHnl6Yd-t9DoClTd4/view" target="_blank">🏢 Employment Reference 2</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1ptd1wY4Jq1ewx-d61IePjbci7B64oWdr/view" target="_blank">🏢 Employment Reference 3</a>
+
 </section>
 
 <section id="contact">
@@ -368,26 +284,13 @@ footer {
 
 <footer>
   © 2026 Abhay Balasaheb Jadhav | Automotive & Autonomous Systems Portfolio <br>
-  <div id="visitor-box">
-    👀 Total Visitors:
-    <span id="visitor-count">0</span>
-  </div>
 </footer>
 
 <script>
-// Navbar mobile toggle
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
-}
-
 // Section animation
 const sections = document.querySelectorAll("section");
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-    }
-  });
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("visible"); } });
 },{threshold:0.15});
 sections.forEach(sec => observer.observe(sec));
 
@@ -400,13 +303,14 @@ function switchLang(lang){
   document.getElementById('contactBtn').textContent=(lang==='de')?"Kontakt":"Contact Me";
 }
 
-// Visitor Counter
+// ✅ Visitor Counter
 fetch("https://api.countapi.xyz/hit/abhay-portfolio/visits")
   .then(res => res.json())
   .then(data => {
     let count = 0;
     const target = data.value;
     const counter = document.getElementById("visitor-count");
+
     const interval = setInterval(() => {
       count++;
       counter.innerText = count;
