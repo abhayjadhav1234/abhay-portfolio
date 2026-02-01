@@ -33,7 +33,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(2,6,23,0.9);
+  background: rgba(2,6,23,0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #1f2933;
   z-index: 1000;
@@ -42,8 +42,9 @@ nav {
 .nav-container {
   display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 26px;
   padding: 14px 20px;
+  flex-wrap: wrap;
 }
 
 .nav-container a {
@@ -76,7 +77,7 @@ nav {
 header {
   background: linear-gradient(135deg, #0a2540, #111827);
   text-align: center;
-  padding: 140px 20px 80px;
+  padding: 150px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,24 +91,18 @@ header img {
   object-fit: cover;
   border: 4px solid #38bdf8;
   margin-bottom: 20px;
-  animation: fadeIn 1.5s ease;
 }
 
 header h1 {
   font-size: 56px;
   margin-bottom: 10px;
-  animation: slideDown 1s ease;
   text-align: center;
 }
-
-.title-container { display: flex; justify-content: center; width: 100%; }
 
 .title {
   font-size: 24px;
   color: #38bdf8;
   font-weight: 500;
-  letter-spacing: 0.5px;
-  animation: fadeIn 2s ease;
   text-align: center;
 }
 
@@ -189,14 +184,6 @@ p {
   box-shadow: 0 15px 40px rgba(56,189,248,0.3);
 }
 
-footer {
-  text-align: center;
-  padding: 28px;
-  background: #020617;
-  color: #9ca3af;
-  font-size: 14px;
-}
-
 .btn {
   display: inline-block;
   margin-top: 25px;
@@ -231,14 +218,20 @@ footer {
   transform: translateY(-4px);
 }
 
+footer {
+  text-align: center;
+  padding: 28px;
+  background: #020617;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
 @media (max-width: 768px) {
   section { padding: 50px 7%; }
   header h1 { font-size: 38px; }
-  .nav-container { gap: 16px; flex-wrap: wrap; }
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
@@ -258,9 +251,7 @@ footer {
 <header>
   <img src="profile.jpg" alt="Abhay Jadhav Profile Picture">
   <h1>Abhay Balasaheb Jadhav</h1>
-  <div class="title-container">
-    <p class="title" id="title">Autonomous Driving & Robotics Engineer</p>
-  </div>
+  <p class="title" id="title">Autonomous Driving & Robotics Engineer</p>
 
   <div class="lang-switch">
     <button class="lang-btn" onclick="switchLang('en')">English</button>
@@ -274,7 +265,6 @@ footer {
   <h2 data-en="About Me" data-de="Über Mich">About Me</h2>
   <p data-en="I am a Master’s graduate in Commercial Vehicle Technology from RPTU Kaiserslautern-Landau with expertise in radar-based localisation, SLAM, robotics, and automotive software engineering. I completed my Master’s degree in 2026 with a final grade of 1.6. I have hands-on experience working with autonomous driving systems at CARIAD SE, SICK AG, and Bosch Chassis Systems."
      data-de="Ich habe meinen Master in Nutzfahrzeugtechnik an der RPTU Kaiserslautern-Landau abgeschlossen, spezialisiert auf radarbasierte Lokalisierung, SLAM, Robotik und Automotive-Softwareentwicklung. Ich habe meinen Master 2026 mit der Endnote 1,6 abgeschlossen und praktische Erfahrung mit autonomen Fahrsystemen bei CARIAD SE, SICK AG und Bosch Chassis Systems gesammelt.">
-     I am a Master’s graduate in Commercial Vehicle Technology from RPTU Kaiserslautern-Landau with expertise in radar-based localisation, SLAM, robotics, and automotive software engineering. I completed my Master’s degree in 2026 with a final grade of 1.6. I have hands-on experience working with autonomous driving systems at CARIAD SE, SICK AG, and Bosch Chassis Systems.
   </p>
 </section>
 
@@ -292,69 +282,35 @@ footer {
     <span>CarMaker</span>
     <span>MATLAB / Simulink</span>
     <span>PyTorch</span>
-    <span>Automotive Systems</span>
   </div>
 </section>
 
 <section id="experience">
   <h2 data-en="Experience" data-de="Erfahrung">Experience</h2>
 
-  <div class="card" data-en="CARIAD SE – Master’s Thesis & Internship: Radar-based vehicle localisation and SLAM for autonomous driving under degraded GNSS conditions."
-       data-de="CARIAD SE – Masterarbeit & Praktikum: Radarbasierte Fahrzeuglokalisierung und SLAM für autonomes Fahren unter verschlechterten GNSS-Bedingungen.">
-       CARIAD SE – Master’s Thesis & Internship: Radar-based vehicle localisation and SLAM for autonomous driving under degraded GNSS conditions.
-  </div>
-
-  <div class="card" data-en="SICK AG – Robotics Internship: Development of localisation software using C++ and ROS2, system testing and validation."
-       data-de="SICK AG – Robotik Praktikum: Entwicklung von Lokalisierungssoftware mit C++ und ROS2, Systemtests und Validierung.">
-       SICK AG – Robotics Internship: Development of localisation software using C++ and ROS2, system testing and validation.
-  </div>
-
-  <div class="card" data-en="Bosch Chassis Systems – Graduate Apprentice: Design and testing of brake system components and development of automation tools using VBA."
-       data-de="Bosch Chassis Systems – Graduate Apprentice: Entwicklung und Test von Bremssystemkomponenten sowie Automatisierungstools mit VBA.">
-       Bosch Chassis Systems – Graduate Apprentice: Design and testing of brake system components and development of automation tools using VBA.
-  </div>
+  <div class="card">CARIAD SE – Master’s Thesis & Internship (Radar-based localisation & SLAM)</div>
+  <div class="card">SICK AG – Robotics Internship (C++, ROS2, localisation systems)</div>
+  <div class="card">Bosch Chassis Systems – Graduate Apprentice (Automation & brake systems)</div>
 </section>
 
-<!-- PROJECTS SECTION -->
 <section id="projects">
   <h2 data-en="Projects" data-de="Projekte">Projects</h2>
 
-  <div class="card" data-en="Radar-based Vehicle Localisation and SLAM – Developed a coarse-to-fine scan alignment framework and implemented a radar-based localisation pipeline using point clouds and ICP refinement."
-       data-de="Radarbasierte Fahrzeuglokalisierung und SLAM – Entwicklung eines grob-zu-fein Scan-Ausrichtungsframeworks und Implementierung einer radarbasierte Lokalisierungspipeline mit Punktwolken und ICP-Verfeinerung.">
-       Radar-based Vehicle Localisation and SLAM – Developed a coarse-to-fine scan alignment framework and implemented a radar-based localisation pipeline using point clouds and ICP refinement.
-  </div>
-
-  <div class="card" data-en="Energy Management System – Designed rule-based and reinforcement learning controllers for energy management, achieving improved efficiency under NEDC and FTP-75 driving cycles."
-       data-de="Energiemanagementsystem – Entwicklung regelbasierter und Reinforcement-Learning-Controller zur Verbesserung der Effizienz unter NEDC- und FTP-75-Fahrzyklen.">
-       Energy Management System – Designed rule-based and reinforcement learning controllers for energy management, achieving improved efficiency under NEDC and FTP-75 driving cycles.
-  </div>
-
-  <div class="card" data-en="CVT Programming Project (C++) – Implemented advanced C++ algorithms for robotics and machine learning applications, including data structures and perception modules."
-       data-de="CVT-Programmierprojekt (C++) – Implementierung fortgeschrittener C++-Algorithmen für Robotik- und Machine-Learning-Anwendungen, einschließlich Datenstrukturen und Wahrnehmungsmodulen.">
-       CVT Programming Project (C++) – Implemented advanced C++ algorithms for robotics and machine learning applications, including data structures and perception modules.
-  </div>
-
-  <div class="card" data-en="VBA Automation Tool – Developed a Visual Basic macro to automate validation report generation and reduce manual errors and processing time."
-       data-de="VBA-Automatisierungstool – Entwicklung eines Visual-Basic-Makros zur Automatisierung von Validierungsberichten und Reduzierung manueller Fehler sowie Bearbeitungszeit.">
-       VBA Automation Tool – Developed a Visual Basic macro to automate validation report generation and reduce manual errors and processing time.
-  </div>
-
-  <div class="card" data-en="Bachelor’s Thesis – Optimised wind lens geometry using machine learning to improve small wind turbine performance."
-       data-de="Bachelorarbeit – Optimierung der Windlinsengeometrie mit Machine Learning zur Verbesserung der Leistung kleiner Windturbinen.">
-       Bachelor’s Thesis – Optimised wind lens geometry using machine learning to improve small wind turbine performance.
-  </div>
+  <div class="card">Radar-based Vehicle Localisation and SLAM</div>
+  <div class="card">Energy Management System (Rule-based & RL)</div>
+  <div class="card">CVT Programming Project (C++)</div>
+  <div class="card">VBA Automation Tool</div>
+  <div class="card">Bachelor’s Thesis – Wind Lens Optimisation</div>
 </section>
 
 <section id="docs">
-  <h2 data-en="Documents & Employment References" data-de="Dokumente & Arbeitszeugnisse">Documents & Employment References</h2>
+  <h2 data-en="Documents & References" data-de="Dokumente & Arbeitszeugnisse">Documents & References</h2>
 
   <a class="doc-btn" href="https://drive.google.com/file/d/1H3qs15LcOnExYhRQBm_yeZXoltDdvcKI/view" target="_blank">📄 CV</a>
   <a class="doc-btn" href="https://drive.google.com/file/d/1PTz_r60ebH4lhTkB_Ujtq2S0rnLaITXi/view" target="_blank">📘 Master’s Thesis</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1gM33zuszWJHtlXDhFQVmNM_5Ufko5Ys2/view" target="_blank">🎓 Master’s Transcript</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1-FpLX9457taQ63g-Wf1lIUUwtGAb471N/view" target="_blank">🎓 Bachelor’s Transcript</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1CkyjdwLysbhrBgIPrNs23szEwdCayssB/view" target="_blank">🎓 Bachelor’s Degree</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1gM33zuszWJHtlXDhFQVmNM_5Ufko5Ys2/view" target="_blank">🎓 Master Transcript</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1-FpLX9457taQ63g-Wf1lIUUwtGAb471N/view" target="_blank">🎓 Bachelor Transcript</a>
   <a class="doc-btn" href="https://drive.google.com/file/d/1XCLIQLBlnM8FzwH9EIlS1a1nPLWfNXTt/view" target="_blank">✉️ Recommendation Letter</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/14bmo8HbqxNC22Y7tHkD6ZiC0Qo0cpE1g/view" target="_blank">📜 Seminar Certificate</a>
 </section>
 
 <section id="contact">
@@ -365,7 +321,7 @@ footer {
 </section>
 
 <footer>
-  © 2026 Abhay Balasaheb Jadhav | Automotive & Autonomous Systems Portfolio
+  © 2026 Abhay Balasaheb Jadhav | Autonomous Systems Portfolio
 </footer>
 
 <script>
