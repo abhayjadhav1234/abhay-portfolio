@@ -28,10 +28,55 @@ a {
 
 a:hover { color: #0ea5e9; }
 
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(2,6,23,0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1f2933;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 14px 20px;
+}
+
+.nav-container a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #d1d5db;
+  position: relative;
+}
+
+.nav-container a:hover {
+  color: #38bdf8;
+}
+
+.nav-container a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #38bdf8;
+  transition: 0.3s;
+}
+
+.nav-container a:hover::after {
+  width: 100%;
+}
+
+/* HEADER */
 header {
   background: linear-gradient(135deg, #0a2540, #111827);
   text-align: center;
-  padding: 120px 20px 80px;
+  padding: 140px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,13 +189,6 @@ p {
   box-shadow: 0 15px 40px rgba(56,189,248,0.3);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 22px;
-  margin-top: 20px;
-}
-
 footer {
   text-align: center;
   padding: 28px;
@@ -196,14 +234,26 @@ footer {
 @media (max-width: 768px) {
   section { padding: 50px 7%; }
   header h1 { font-size: 38px; }
+  .nav-container { gap: 16px; flex-wrap: wrap; }
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-
 </style>
 </head>
 <body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <a href="#about" data-en="About" data-de="Über Mich">About</a>
+    <a href="#skills" data-en="Skills" data-de="Fähigkeiten">Skills</a>
+    <a href="#experience" data-en="Experience" data-de="Erfahrung">Experience</a>
+    <a href="#projects" data-en="Projects" data-de="Projekte">Projects</a>
+    <a href="#docs" data-en="Documents" data-de="Dokumente">Documents</a>
+    <a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+  </div>
+</nav>
 
 <header>
   <img src="profile.jpg" alt="Abhay Jadhav Profile Picture">
@@ -223,7 +273,9 @@ footer {
 <section id="about">
   <h2 data-en="About Me" data-de="Über Mich">About Me</h2>
   <p data-en="I am a Master’s graduate in Commercial Vehicle Technology from RPTU Kaiserslautern-Landau with expertise in radar-based localisation, SLAM, robotics, and automotive software engineering. I completed my Master’s degree in 2026 with a final grade of 1.6. I have hands-on experience working with autonomous driving systems at CARIAD SE, SICK AG, and Bosch Chassis Systems."
-     data-de="Ich habe meinen Master in Nutzfahrzeugtechnik an der RPTU Kaiserslautern-Landau abgeschlossen, spezialisiert auf radarbasierte Lokalisierung, SLAM, Robotik und Automotive-Softwareentwicklung. Ich habe meinen Master 2026 mit der Endnote 1,6 abgeschlossen und praktische Erfahrung mit autonomen Fahrsystemen bei CARIAD SE, SICK AG und Bosch Chassis Systems gesammelt.">I am a Master’s graduate in Commercial Vehicle Technology from RPTU Kaiserslautern-Landau with expertise in radar-based localisation, SLAM, robotics, and automotive software engineering. I completed my Master’s degree in 2026 with a final grade of 1.6. I have hands-on experience working with autonomous driving systems at CARIAD SE, SICK AG, and Bosch Chassis Systems.</p>
+     data-de="Ich habe meinen Master in Nutzfahrzeugtechnik an der RPTU Kaiserslautern-Landau abgeschlossen, spezialisiert auf radarbasierte Lokalisierung, SLAM, Robotik und Automotive-Softwareentwicklung. Ich habe meinen Master 2026 mit der Endnote 1,6 abgeschlossen und praktische Erfahrung mit autonomen Fahrsystemen bei CARIAD SE, SICK AG und Bosch Chassis Systems gesammelt.">
+     I am a Master’s graduate in Commercial Vehicle Technology from RPTU Kaiserslautern-Landau with expertise in radar-based localisation, SLAM, robotics, and automotive software engineering. I completed my Master’s degree in 2026 with a final grade of 1.6. I have hands-on experience working with autonomous driving systems at CARIAD SE, SICK AG, and Bosch Chassis Systems.
+  </p>
 </section>
 
 <section id="skills">
@@ -247,40 +299,69 @@ footer {
 <section id="experience">
   <h2 data-en="Experience" data-de="Erfahrung">Experience</h2>
 
-  <div class="card" data-en="CARIAD SE (Volkswagen Group) – Master’s Thesis & Internship: Radar-based vehicle localisation and SLAM for autonomous driving under degraded GNSS conditions."
-       data-de="CARIAD SE (Volkswagen Group) – Masterarbeit & Praktikum: Radarbasierte Fahrzeuglokalisierung und SLAM für autonomes Fahren unter verschlechterten GNSS-Bedingungen.">CARIAD SE (Volkswagen Group) – Master’s Thesis & Internship: Radar-based vehicle localisation and SLAM for autonomous driving under degraded GNSS conditions.</div>
+  <div class="card" data-en="CARIAD SE – Master’s Thesis & Internship: Radar-based vehicle localisation and SLAM for autonomous driving under degraded GNSS conditions."
+       data-de="CARIAD SE – Masterarbeit & Praktikum: Radarbasierte Fahrzeuglokalisierung und SLAM für autonomes Fahren unter verschlechterten GNSS-Bedingungen.">
+       CARIAD SE – Master’s Thesis & Internship: Radar-based vehicle localisation and SLAM for autonomous driving under degraded GNSS conditions.
+  </div>
 
   <div class="card" data-en="SICK AG – Robotics Internship: Development of localisation software using C++ and ROS2, system testing and validation."
-       data-de="SICK AG – Robotik Praktikum: Entwicklung von Lokalisierungssoftware mit C++ und ROS2, Systemtests und Validierung.">SICK AG – Robotics Internship: Development of localisation software using C++ and ROS2, system testing and validation.</div>
+       data-de="SICK AG – Robotik Praktikum: Entwicklung von Lokalisierungssoftware mit C++ und ROS2, Systemtests und Validierung.">
+       SICK AG – Robotics Internship: Development of localisation software using C++ and ROS2, system testing and validation.
+  </div>
 
-  <div class="card" data-en="Bosch Chassis Systems India – Graduate Apprentice: Design and testing of brake system components and development of automation tools using VBA."
-       data-de="Bosch Chassis Systems India – Graduate Apprentice: Entwurf und Test von Bremssystemkomponenten und Entwicklung von Automatisierungstools mit VBA.">Bosch Chassis Systems India – Graduate Apprentice: Design and testing of brake system components and development of automation tools using VBA.</div>
+  <div class="card" data-en="Bosch Chassis Systems – Graduate Apprentice: Design and testing of brake system components and development of automation tools using VBA."
+       data-de="Bosch Chassis Systems – Graduate Apprentice: Entwicklung und Test von Bremssystemkomponenten sowie Automatisierungstools mit VBA.">
+       Bosch Chassis Systems – Graduate Apprentice: Design and testing of brake system components and development of automation tools using VBA.
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+  <h2 data-en="Projects" data-de="Projekte">Projects</h2>
+
+  <div class="card" data-en="Radar-based Vehicle Localisation and SLAM – Developed a coarse-to-fine scan alignment framework and implemented a radar-based localisation pipeline using point clouds and ICP refinement."
+       data-de="Radarbasierte Fahrzeuglokalisierung und SLAM – Entwicklung eines grob-zu-fein Scan-Ausrichtungsframeworks und Implementierung einer radarbasierte Lokalisierungspipeline mit Punktwolken und ICP-Verfeinerung.">
+       Radar-based Vehicle Localisation and SLAM – Developed a coarse-to-fine scan alignment framework and implemented a radar-based localisation pipeline using point clouds and ICP refinement.
+  </div>
+
+  <div class="card" data-en="Energy Management System – Designed rule-based and reinforcement learning controllers for energy management, achieving improved efficiency under NEDC and FTP-75 driving cycles."
+       data-de="Energiemanagementsystem – Entwicklung regelbasierter und Reinforcement-Learning-Controller zur Verbesserung der Effizienz unter NEDC- und FTP-75-Fahrzyklen.">
+       Energy Management System – Designed rule-based and reinforcement learning controllers for energy management, achieving improved efficiency under NEDC and FTP-75 driving cycles.
+  </div>
+
+  <div class="card" data-en="CVT Programming Project (C++) – Implemented advanced C++ algorithms for robotics and machine learning applications, including data structures and perception modules."
+       data-de="CVT-Programmierprojekt (C++) – Implementierung fortgeschrittener C++-Algorithmen für Robotik- und Machine-Learning-Anwendungen, einschließlich Datenstrukturen und Wahrnehmungsmodulen.">
+       CVT Programming Project (C++) – Implemented advanced C++ algorithms for robotics and machine learning applications, including data structures and perception modules.
+  </div>
+
+  <div class="card" data-en="VBA Automation Tool – Developed a Visual Basic macro to automate validation report generation and reduce manual errors and processing time."
+       data-de="VBA-Automatisierungstool – Entwicklung eines Visual-Basic-Makros zur Automatisierung von Validierungsberichten und Reduzierung manueller Fehler sowie Bearbeitungszeit.">
+       VBA Automation Tool – Developed a Visual Basic macro to automate validation report generation and reduce manual errors and processing time.
+  </div>
+
+  <div class="card" data-en="Bachelor’s Thesis – Optimised wind lens geometry using machine learning to improve small wind turbine performance."
+       data-de="Bachelorarbeit – Optimierung der Windlinsengeometrie mit Machine Learning zur Verbesserung der Leistung kleiner Windturbinen.">
+       Bachelor’s Thesis – Optimised wind lens geometry using machine learning to improve small wind turbine performance.
+  </div>
 </section>
 
 <section id="docs">
   <h2 data-en="Documents & Employment References" data-de="Dokumente & Arbeitszeugnisse">Documents & Employment References</h2>
-  <p data-en="You can view or download my academic and professional documents below:"
-     data-de="Sie können meine akademischen und beruflichen Dokumente unten ansehen oder herunterladen:">You can view or download my academic and professional documents below:</p>
 
-  <a class="doc-btn" href="https://drive.google.com/file/d/1H3qs15LcOnExYhRQBm_yeZXoltDdvcKI/view?usp=drivesdk" target="_blank" data-en="CV" data-de="Lebenslauf">🏢 CV</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1PTz_r60ebH4lhTkB_Ujtq2S0rnLaITXi/view?usp=drivesdk" target="_blank" data-en="Master’s Thesis" data-de="Masterarbeit">📘 Master’s Thesis</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1gM33zuszWJHtlXDhFQVmNM_5Ufko5Ys2/view?usp=drivesdk" target="_blank" data-en="Master’s Transcript" data-de="Master Transcript">🎓 Master’s Transcript</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1-FpLX9457taQ63g-Wf1lIUUwtGAb471N/view?usp=drivesdk" target="_blank" data-en="Bachelor’s Transcript" data-de="Bachelor Transcript">📄 Bachelor’s Transcript</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1CkyjdwLysbhrBgIPrNs23szEwdCayssB/view?usp=drivesdk" target="_blank" data-en="Bachelor’s Degree" data-de="Bachelorabschluss">🎓 Bachelor’s Degree</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1XCLIQLBlnM8FzwH9EIlS1a1nPLWfNXTt/view?usp=drivesdk" target="_blank" data-en="Recommendation Letter" data-de="Empfehlungsschreiben">✉️ Recommendation Letter</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/14bmo8HbqxNC22Y7tHkD6ZiC0Qo0cpE1g/view?usp=drivesdk" target="_blank" data-en="Seminar Electromobility Certificate" data-de="Seminar Elektromobilität Zertifikat">📜 Seminar Electromobility Certificate</a>
-
-  <h3 style="margin-top: 25px; color:#38bdf8;" data-en="Employment References" data-de="Arbeitszeugnisse">Employment References</h3>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1w-AFurYIn-h00TM6fzIYe3cOgJFBduVb/view" target="_blank" data-en="Employment Reference 1" data-de="Arbeitszeugnis 1">🏢 Employment Reference 1</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1IGKlR3h-FCsLRfGxHnl6Yd-t9DoClTd4/view" target="_blank" data-en="Employment Reference 2" data-de="Arbeitszeugnis 2">🏢 Employment Reference 2</a>
-  <a class="doc-btn" href="https://drive.google.com/file/d/1ptd1wY4Jq1ewx-d61IePjbci7B64oWdr/view" target="_blank" data-en="Employment Reference 3" data-de="Arbeitszeugnis 3">🏢 Employment Reference 3</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1H3qs15LcOnExYhRQBm_yeZXoltDdvcKI/view" target="_blank">📄 CV</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1PTz_r60ebH4lhTkB_Ujtq2S0rnLaITXi/view" target="_blank">📘 Master’s Thesis</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1gM33zuszWJHtlXDhFQVmNM_5Ufko5Ys2/view" target="_blank">🎓 Master’s Transcript</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1-FpLX9457taQ63g-Wf1lIUUwtGAb471N/view" target="_blank">🎓 Bachelor’s Transcript</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1CkyjdwLysbhrBgIPrNs23szEwdCayssB/view" target="_blank">🎓 Bachelor’s Degree</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/1XCLIQLBlnM8FzwH9EIlS1a1nPLWfNXTt/view" target="_blank">✉️ Recommendation Letter</a>
+  <a class="doc-btn" href="https://drive.google.com/file/d/14bmo8HbqxNC22Y7tHkD6ZiC0Qo0cpE1g/view" target="_blank">📜 Seminar Certificate</a>
 </section>
 
 <section id="contact">
   <h2 data-en="Contact" data-de="Kontakt">Contact</h2>
-  <p data-en="Email: " data-de="E-Mail: ">Email: <a href="mailto:Jadhav.abhay426@gmail.com">Jadhav.abhay426@gmail.com</a></p>
-  <p data-en="Phone: " data-de="Telefon: ">Phone: <a href="tel:+4917687976607">+49 176 87976607</a></p>
-  <p data-en="LinkedIn: " data-de="LinkedIn: ">LinkedIn: <a href="https://www.linkedin.com/in/abhay-balasaheb-jadhav-72a0a5127/" target="_blank">linkedin.com/in/abhay-balasaheb-jadhav</a></p>
+  <p>Email: <a href="mailto:Jadhav.abhay426@gmail.com">Jadhav.abhay426@gmail.com</a></p>
+  <p>Phone: <a href="tel:+4917687976607">+49 176 87976607</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/abhay-balasaheb-jadhav-72a0a5127/" target="_blank">linkedin.com/in/abhay-balasaheb-jadhav</a></p>
 </section>
 
 <footer>
@@ -290,24 +371,23 @@ footer {
 <script>
 const sections = document.querySelectorAll("section");
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("visible"); } });
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
 },{threshold:0.15});
 sections.forEach(sec => observer.observe(sec));
 
 function switchLang(lang){
   document.querySelectorAll("[data-en]").forEach(el=>{
-    if(el.tagName.toLowerCase()==='p' && el.innerHTML.includes('<a')){
-      const enText=el.getAttribute('data-en');
-      const deText=el.getAttribute('data-de');
-      const parts=el.innerHTML.split(/<a/);
-      el.innerHTML=((lang==='de')?deText:enText)+"<a"+parts[1];
-    } else {
-      el.textContent=(lang==='de')?el.getAttribute('data-de'):el.getAttribute('data-en');
-    }
+    el.textContent=(lang==='de')?el.getAttribute('data-de'):el.getAttribute('data-en');
   });
-  document.getElementById('title').textContent=(lang==='de')?"Autonomes Fahren & Robotik Ingenieur":"Autonomous Driving & Robotics Engineer";
+  document.getElementById('title').textContent=(lang==='de')?
+    "Autonomes Fahren & Robotik Ingenieur":
+    "Autonomous Driving & Robotics Engineer";
   document.getElementById('contactBtn').textContent=(lang==='de')?"Kontakt":"Contact Me";
-} 
+}
 </script>
 
 </body>
